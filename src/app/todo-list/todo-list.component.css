@@ -1,0 +1,9 @@
+.center{
+    margin:15px;
+    text-align: center;
+}
+
+.containerCls{
+    margin: 2%;
+    background-color: rgb(255, 228, 218);
+}
