@@ -1,34 +1,69 @@
 <!-- <p>todo-list works!</p> -->
-
+<h1 class="center">To-Do Application</h1>
 
 <div class="container containerCls">
-    <div class="center">
-        <!-- <h2>Add the task</h2> -->
-        <div class="row">
+    
+  <div class="center">
+
+        <div class="row  margin2">
             
-            <div class="col-sm-3">Add Task</div>
-            <div class="col-sm-6"><input type="text"></div>
-            <div class="col-sm-3"><button class="btn btn-primary" width="30">Create Task</button></div>
+            <div class="col-sm-2"><b>Task List</b></div>
+            <div class="col-sm-2">Select Status
+              <div class="dropdown">
+                <button type="button" class="btn btn-outline-info btncls dropdown-toggle" data-toggle="dropdown">
+                  All
+                </button>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Backlog</a>
+                  <a class="dropdown-item" href="#">In-progress</a>
+                  <a class="dropdown-item" href="#">Done</a>
+                </div>
+              
+             </div>
             
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-7">
+                <span class="center">Add Task</span>
+                <input type="text" placeholder="Add task.." #box style="width: 65%;">
+                <button type="button" (click)="addTask(box.value)" class="btn btn-outline-primary margin">
+                  New Task
+                </button>
+            </div>                           
+                       
         </div>
-       
+
     </div>
     
-    <table class="table table-striped">
+    <table class="table center">
       <thead>
-        <tr>
+        <tr class="thead-light">
           <th>ID</th>
-          <th>Title</th>
+          <!-- <th>Title</th> -->
           <th>Description</th>
           <th>Task status</th>
+          <th>Edit Task</th>
+          <!-- <th>Delete Task</th> -->
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let todo of todos">
-          <td>{{todo.id}}</td>
-          <td>{{todo.title}}</td>
+        <tr *ngFor="let todo of todos;let i=index">
+          <td>{{i+1}}</td>
+          <!-- <td>{{todo.title}}</td> -->
           <td>{{todo.description}}</td>
-          <td>{{todo.status}}</td>
+          <td>
+            <!-- {{todo.status}} -->
+           <select>
+             <option value="backlog">Backlog</option>
+             <option value="in-progress">In-progress</option>
+             <option value="done">Done</option>
+           </select>
+          </td>
+          <td>
+            <i class='fas fa-edit' style="margin: 5px;" (click)="edit()"></i>
+            <i class='fas fa-trash-alt' (click)="delete()"></i>
+          </td>
+          <!-- <td><i class='fas fa-trash-alt'></i></td> -->
         </tr>
       </tbody>
     </table>
