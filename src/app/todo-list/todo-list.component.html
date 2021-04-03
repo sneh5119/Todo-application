@@ -10,13 +10,13 @@
             <div class="col-sm-2"><b>Task List</b></div>
             <div class="col-sm-2">Select Status
               <div class="dropdown">
-                <button type="button" class="btn btn-outline-info btncls dropdown-toggle" data-toggle="dropdown">
+                <button type="button"  class="btn btn-outline-info btncls dropdown-toggle" data-toggle="dropdown">
                   All
                 </button>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Backlog</a>
-                  <a class="dropdown-item" href="#">In-progress</a>
-                  <a class="dropdown-item" href="#">Done</a>
+                <div class="dropdown-menu" (click)="onchange2($event.target.value)">
+                  <a class="dropdown-item" href="#" value="back">Backlog</a>
+                  <a class="dropdown-item" href="#" value="in-progress">In-progress</a>
+                  <a class="dropdown-item" href="#" value="done">Done</a>
                 </div>
               
              </div>
@@ -53,19 +53,55 @@
           <td>{{todo.description}}</td>
           <td>
             <!-- {{todo.status}} -->
-           <select>
+           <select (change)="onchange($event.target.value)" class="selectCls">
              <option value="backlog">Backlog</option>
              <option value="in-progress">In-progress</option>
              <option value="done">Done</option>
            </select>
           </td>
           <td>
-            <i class='fas fa-edit' style="margin: 5px;" (click)="edit()"></i>
-            <i class='fas fa-trash-alt' (click)="delete()"></i>
+            <button class="btn btn-success buttonCls">
+              <i class='fas fa-edit' style="color:#fff"
+              type="button" data-toggle="modal" (click)="edit(i)" data-target="#myModal"></i>
+            </button>
+
+            <button class="btn btn-danger">
+              <i class='fas fa-trash-alt' style="color:#fff" (click)="delete(i)"></i>
+            </button>
+            
           </td>
-          <!-- <td><i class='fas fa-trash-alt'></i></td> -->
+  
         </tr>
       </tbody>
     </table>
+
+            <!--Model  -->
+            <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+            
+              <div class="modal-header">
+                <h4 class="modal-title">Edit Data</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              
+              <!-- Modal body -->
+              <div class="modal-body">
+                <label>Description</label>
+                <input type="text" placeholder="description" [(ngModel)]="updatedVal">
+                <!-- <button type="button" class="btn btn-warning margin2" (click)="update(idts)">Update</button> -->
+              </div>
+              
+              <!-- Modal footer -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-warning margin2" (click)="update(idts)">Update</button>
+                </div>
+              
+            </div>
+          </div>
+         </div>
+      
+        
+        
   </div>
   

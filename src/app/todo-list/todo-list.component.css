@@ -29,3 +29,17 @@ input{
 i{
     cursor: pointer;
 }
+
+
+.buttonCls{
+    /* border: none; */
+    margin: 2px;
+    /* padding: 7px; */
+    /* background-color: darkcyan; */
+}
+
+.selectCls{
+    border-color : darkviolet;
+    border-radius: 5px;
+    padding: 5px;
+}

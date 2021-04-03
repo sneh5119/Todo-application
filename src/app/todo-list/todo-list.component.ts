@@ -10,6 +10,8 @@ import { TodoService } from '../todo.service';
 export class TodoListComponent implements OnInit {
 
   todos:Todo[]=[];
+  idts;
+  updatedVal="";
   constructor(private todoService : TodoService) { }
   @ViewChild('box') inputName;
 
@@ -33,12 +35,26 @@ export class TodoListComponent implements OnInit {
      this.inputName.nativeElement.value='';
   }
 
-  delete(){
+  delete(index){
     console.log("deleted");
+    this.todos.splice(index,1);
   }
 
-  edit(){
-    console.log("edited");
+  edit(id){
+    this.idts=id;
+  }
+
+  update(index){
+    this.todos[index].description=this.updatedVal;
+
+  }
+
+  onchange(value){
+    console.log("onchange value",value);
+  }
+
+  onchange2(value){
+    console.log("value selected", value);
   }
 
 }
