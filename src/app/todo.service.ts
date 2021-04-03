@@ -18,7 +18,7 @@ export class TodoService {
         id:1,
         title:"todo1",
         description:"walking",
-        status:"backlog"
+        status:"in-progress"
       },
       {
         id:2,
@@ -30,7 +30,7 @@ export class TodoService {
         id:3,
         title:"todo3",
         description:"swimming",
-        status:"backlog"
+        status:"done"
       },
 
     ];

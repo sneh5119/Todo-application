@@ -11,12 +11,13 @@
             <div class="col-sm-2">Select Status
               <div class="dropdown">
                 <button type="button"  class="btn btn-outline-info btncls dropdown-toggle" data-toggle="dropdown">
-                  All
+                  {{statusFilter}}
                 </button>
-                <div class="dropdown-menu" (click)="onchange2($event.target.value)">
-                  <a class="dropdown-item" href="#" value="back">Backlog</a>
-                  <a class="dropdown-item" href="#" value="in-progress">In-progress</a>
-                  <a class="dropdown-item" href="#" value="done">Done</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" (click)="onchange2('All')" value="all">All</a>
+                  <a class="dropdown-item" (click)="onchange2('Backlog')"  value="back">Backlog</a>
+                  <a class="dropdown-item" (click)="onchange2('In-Progress')"  value="in-progress">In-progress</a>
+                  <a class="dropdown-item" (click)="onchange2('Done')" value="done">Done</a>
                 </div>
               
              </div>
@@ -47,16 +48,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let todo of todos;let i=index">
+        <tr *ngFor="let todo of todos | filter:statusFilter ;let i=index">
           <td>{{i+1}}</td>
           <!-- <td>{{todo.title}}</td> -->
           <td>{{todo.description}}</td>
           <td>
             <!-- {{todo.status}} -->
-           <select (change)="onchange($event.target.value)" class="selectCls">
-             <option value="backlog">Backlog</option>
-             <option value="in-progress">In-progress</option>
-             <option value="done">Done</option>
+           <select (change)="onchange($event.target.value,i)" class="selectCls">
+             <option value="backlog" [selected]="todo.status=='backlog'">Backlog</option>
+             <option value="in-progress" [selected]="todo.status=='in-progress'">In-progress</option>
+             <option value="done" [selected]="todo.status=='done'">Done</option>
            </select>
           </td>
           <td>
