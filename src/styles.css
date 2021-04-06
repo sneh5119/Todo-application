@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    /* background-color: gray; */
+    background-image: url("src/assets/todo14.jpeg");
+    background-size: 120%;
+    background-repeat: no-repeat;
+}

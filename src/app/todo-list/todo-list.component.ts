@@ -46,7 +46,12 @@ export class TodoListComponent implements OnInit {
 
 
   addTask(val){
-    let count=this.todos.length+1;
+
+    if(!val){
+      alert("Please Enter Some Value !!!")
+    }else{
+
+      let count=this.todos.length+1;
     let task={
        id:count++,
        description:val,
@@ -55,6 +60,9 @@ export class TodoListComponent implements OnInit {
      this.todos.push(task);
      this.inputName.nativeElement.value='';
      console.log("todos array =>> ",this.todos)
+    }
+
+    
   }
 
   delete(index){
@@ -66,9 +74,15 @@ export class TodoListComponent implements OnInit {
     this.idts=id;
   }
 
-  update(index){
-    this.todos[index].description=this.updatedVal;
-
+  update(index,editval){
+    if(!editval){
+       alert("Please Enter Some Value !!!");
+    }else{
+      console.log("editval",editval);
+      this.todos[index].description=this.updatedVal;
+  
+    }
+    
   }
 
 

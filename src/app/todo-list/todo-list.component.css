@@ -1,27 +1,31 @@
 .center{
-    margin:15px;
     text-align: center;
 }
 
 .containerCls{
     margin: 2%;
-    background-color:#e3e3e3;
+    padding: 3%;
+    background-color: rgba(0,0,0,0.4);
+    border-radius: 8px;
+    box-shadow: rgba(0,0,0,0.6);
 }
 
 .margin{
     padding: 5px;
     margin: 5px;
-}
-.margin2{
-    padding: 5px;
-    margin: 10px;
-}
-
-input{
-    height: 60%;
-    /* border-radius: 5px; */
+    margin-top: 0px;
+} 
+.margin3{
+    padding: 10px;
+    margin: 20px;
 }
 
+
+
+.flexCls{
+    display: flex;
+    justify-content: flex-end;
+}
 .btncls{
     width: 70%;
 }
@@ -30,16 +34,37 @@ i{
     cursor: pointer;
 }
 
+th,tr{
+    width:-10%;
+}
 
 .buttonCls{
-    /* border: none; */
     margin: 2px;
-    /* padding: 7px; */
-    /* background-color: darkcyan; */
-}
+ }
+
+ input{
+     height: 30px;
+     border: 5px;
+     width: 50%;
+ }
+
+ .selectCls,input{
+    background-color: #e3e3e3;
+ }
 
 .selectCls{
     border-color : darkviolet;
     border-radius: 5px;
     padding: 5px;
+}
+.col-md-8{
+    text-align: right;
+}
+
+.modal-footer,.modal-header{
+    background-color:navajowhite;
+}
+
+@media only screen and (max-width: 500px){
+    .col-6 {width: 150%;}
 }
